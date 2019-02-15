@@ -23,4 +23,5 @@ $api = app(Router::class);
 $api->version('v1', function(Router $api) {
 		$api->get('me', 'App\Http\Controllers\Auth\RegisterController@me');
 		
+		
 });
