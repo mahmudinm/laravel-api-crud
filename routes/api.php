@@ -21,8 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 $api = app(Router::class);
 
 $api->version('v1', function(Router $api) {
-		$api->get('me', 'App\Http\Controllers\Api\Auth\SignUpController@get');
-		$api->post('signup', 'App\Http\Controllers\Api\Auth\SignUpController@post');
+	
+		$api->get('me', 'App\Http\Controllers\Api\Auth\AuthController@get');
+		$api->post('signup', 'App\Http\Controllers\Api\Auth\AuthController@signUp');
+		$api->post('login', 'App\Http\Controllers\Api\Auth\AuthController@login');
 
 
 });
