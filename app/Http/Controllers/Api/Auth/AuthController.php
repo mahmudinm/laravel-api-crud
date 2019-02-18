@@ -54,10 +54,15 @@ class AuthController extends Controller
         ], 201);
     }
 
-    
-
-    public function get()
+    public function refresh()
     {
-        return 'ok';
+        $token = Auth::guard()->refresh();
+
+        return response()->json([
+            'status' => 'ok',
+            'token' => $token,
+            'expires_in' => Auth::guard()->factory()->getTTL() * 60
+        ]);
     }
+
 }

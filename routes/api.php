@@ -25,6 +25,7 @@ $api->version('v1', function(Router $api) {
 		$api->get('me', 'App\Http\Controllers\Api\Auth\AuthController@get');
 		$api->post('login', 'App\Http\Controllers\Api\Auth\AuthController@login');
 		$api->post('register', 'App\Http\Controllers\Api\Auth\AuthController@register');
+		$api->post('refresh', 'App\Http\Controllers\Api\Auth\AuthController@refresh');
 		
 		$api->group(['middleware' => 'api'], function($api){
 
