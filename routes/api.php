@@ -29,6 +29,8 @@ $api->version('v1', function(Router $api) {
 		$api->group(['middleware' => 'api'], function($api){
 
 			$api->resource('book', 'App\Http\Controllers\Api\BookController');
+			$api->resource('author', 'App\Http\Controllers\Api\AuthorController');
+			$api->resource('category', 'App\Http\Controllers\Api\CategoryController');
 
 		});
 		
