@@ -23,8 +23,14 @@ $api = app(Router::class);
 $api->version('v1', function(Router $api) {
 	
 		$api->get('me', 'App\Http\Controllers\Api\Auth\AuthController@get');
-		$api->post('signup', 'App\Http\Controllers\Api\Auth\AuthController@signUp');
 		$api->post('login', 'App\Http\Controllers\Api\Auth\AuthController@login');
+		$api->post('register', 'App\Http\Controllers\Api\Auth\AuthController@register');
+		
+		$api->group(['middleware' => 'api'], function($api){
 
+			$api->resource('book', 'App\Http\Controllers\Api\BookController');
+
+		});
+		
 
 });

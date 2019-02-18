@@ -10,7 +10,7 @@ use App\Http\Controllers\Controller;
 
 use Auth;
 use App\User;
-use App\Http\Requests\SignUpRequest;
+use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 
 class AuthController extends Controller
@@ -40,7 +40,7 @@ class AuthController extends Controller
         ]);
     }
 
-    public function signUp(SignUpRequest $request, JWTAuth $JWTAuth)
+    public function register(RegisterRequest $request, JWTAuth $JWTAuth)
     {
         $user = new User($request->all());
         if (!$user->save()) {
